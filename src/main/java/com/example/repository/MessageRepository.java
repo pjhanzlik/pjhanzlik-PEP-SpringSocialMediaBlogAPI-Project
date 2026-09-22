@@ -1,4 +1,9 @@
 package com.example.repository;
 
-public interface MessageRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.example.entity.Message;
+
+public interface MessageRepository extends CrudRepository<Message, Integer> {
+    public Iterable<Message> findAllByPostedBy(int postedBy);
 }
